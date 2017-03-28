@@ -1,0 +1,50 @@
+<!-- LOADING -->
+<div ng-if="loading" class="mdl-grid">
+	<div class="mdl-layout-spacer"></div>
+	<div class="mdl-cell mdl-cell--1-col">
+		<p class="mdl-spinner mdl-js-spinner is-active"></p>
+	</div>	
+	<div class="mdl-layout-spacer"></div>
+</div>
+<!-- /LOADING -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			
+			<!-- NAVBAR -->
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#albums"><span class="glyphicon glyphicon-home"></span> </a>
+							</li>
+						</ul>
+					</div>	
+				</div>
+			</nav>
+			<!-- /NAVBAR -->
+
+			<!-- PHOTO -->
+			<div ng-if="!photoErrorMesage">
+				<img ng-src="{{photo.url}}" style="width: 100%"></img>
+				<br><br><br>
+				<p>Album number: <span ng-bind="photo.albumId"></span></p>
+				<p>Photo number: <span ng-bind="photo.id"></span>
+				<p>Title: <span ng-bind="photo.title"></span>
+			</div>
+			<!-- /PHOTO -->
+
+			<div ng-bind="photoErrorMesage" ng-if="photoErrorMesage" class="alert alert-danger" role="alert"></div>
+			
+		</div>
+	</div>
+</div>

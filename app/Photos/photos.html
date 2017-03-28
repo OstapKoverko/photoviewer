@@ -1,0 +1,74 @@
+<!-- LOADING -->
+<div ng-if="loading" class="mdl-grid">
+	<div class="mdl-layout-spacer"></div>
+	<div class="mdl-cell mdl-cell--1-col">
+		<p class="mdl-spinner mdl-js-spinner is-active"></p>
+	</div>	
+	<div class="mdl-layout-spacer"></div>
+</div>
+<!-- /LOADING -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			<!-- NAVBAR -->
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar">
+						<!-- PAGE SIZING -->
+						<ul class="nav navbar-nav">
+			        <li class="dropdown">
+			          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button">
+			          	Photos per pages:
+			          	<span ng-bind="pageSize"></span>
+			          	<span class="caret"></span>
+			          </a>
+			          <ul class="dropdown-menu">
+									<li> <a ng-href="" ng-click="setPageSize(10)"> 10 </a> </li>
+									<li> <a ng-href="" ng-click="setPageSize(20)"> 20 </a> </li>
+									<li> <a ng-href="" ng-click="setPageSize(50)"> 50 </a> </li>
+								</ul>
+			        </li>
+						</ul>
+						<!-- /PAGE SIZING -->
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#albums"><span class="glyphicon glyphicon-home"></span> </a>
+							</li>
+						</ul>
+					</div>	
+				</div>
+			</nav>
+			<!-- /NAVBAR -->
+
+			<!-- PHOTOS -->
+			<table class="table table-hover" ng-if="!photosErrorMesage">
+				<tr ng-repeat="photo in photos">
+					<td>
+						<img ng-src="{{photo.thumbnailUrl}}" alt="photo"/>
+					</td>
+					<td ng-bind="photo.title"> </td>
+					<td>
+						<a ng-href="#photos/{{ photo.id }}"> 
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</td>
+				</tr>
+			</table>
+			<!-- /PHOTOS -->
+			
+			<pagination items-quantity="photosQuantity" page-size="pageSize" on-select-page="onSelectPage"></pagination>
+
+			<div ng-bind="photosErrorMesage" ng-if="photosErrorMesage" class="alert alert-danger" role="alert"></div>
+			
+		</div>
+	</div>
+</div>

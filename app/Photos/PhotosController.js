@@ -23,7 +23,6 @@ app.controller('photosController', function($scope, $routeParams, LoadDataServic
 				$scope.pageSize = window.sessionStorage.pageSize;
 				$scope.pageNumber = window.sessionStorage.pageNumber;
 				$scope.loading = false;
-				debugger;
 			},
 			function onError(response) {
 				console.log(response);

@@ -20,7 +20,6 @@ app.directive("pagination", function() {
 							pages.unshift(i);
 						}
 						$scope.pages = pages;
-						debugger;
 					}
 				);
 				$scope.selectPage = function (currentPage) {

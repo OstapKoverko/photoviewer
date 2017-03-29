@@ -19,7 +19,6 @@ app.controller('albumsController', function($scope, LoadDataService, UpgradeDomS
 				$scope.albums = response.albums;
 				$scope.albumsQuantity = response.albumsQuantity;
 				$scope.loading = false;
-				debugger;
 			},
 			function onError(response) {
 				console.log(response);

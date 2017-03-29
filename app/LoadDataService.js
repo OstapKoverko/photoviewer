@@ -10,7 +10,6 @@ app.service('LoadDataService', function($http, $q) {
 					albumsQuantity: response.data.length,
 					albums: response.data.splice((pageNumber * pageSize) - pageSize, pageSize)
 				});
-				debugger;
 			},
 			function onError(response) {
 				deferred.reject("GetAlbums method's status: " + response.status + " " + response.statusText);
@@ -29,7 +28,6 @@ app.service('LoadDataService', function($http, $q) {
 					photosQuantity: response.data.length,
 					photos: response.data.splice((pageNumber * pageSize) - pageSize, pageSize)
 				});
-				debugger;
 			},
 			function onError(response) {
 				deferred.reject("GetPhotosById method's status: " + response.status + " " + response.statusText);
@@ -43,7 +41,6 @@ app.service('LoadDataService', function($http, $q) {
 		$http.get("https://jsonplaceholder.typicode.com/photos/" + id).then(
 			function onSuccess(response) {
 				deferred.resolve (response.data);
-				debugger;
 			},
 			function onError(response) {
 				deferred.reject("GetPhotosById method's status: " + response.status + " " + response.statusText);

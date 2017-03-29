@@ -7,7 +7,6 @@ app.controller('photoController', function($scope, $routeParams, LoadDataService
 			$scope.photoErrorMesage = null;
 			$scope.photo = response;
 			$scope.loading = false;
-			debugger;
 		},
 		function onError(response) {
 			console.log(response);

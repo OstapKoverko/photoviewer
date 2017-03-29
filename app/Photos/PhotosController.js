@@ -1,19 +1,9 @@
-app.controller('photosController', function($scope, $routeParams, PhotosService, UpgradeDomService) {
+app.controller('photosController', function($scope, $routeParams, LoadDataService, UpgradeDomService) {
 	$scope.loading = true;
-	// window.sessionStorage.pageSize = 10;
-	// window.sessionStorage.pageNumber = 1;
-	
-	// $scope.pageSize = window.sessionStorage.pageSize;
-	// $scope.pageNumber = window.sessionStorage.pageNumber;
 	window.sessionStorage.currentAlbumId = $routeParams.id;
-	// $scope.pageSize = 10;
-	// $scope.pageNumber = 1;
-	// $scope.currentAlbumId = $routeParams.id;
-	
-	debugger;
 	$scope.setPageSize = function (pageSize) {
 		window.sessionStorage.pageSize = pageSize;
-		// window.sessionStorage.pageNumber = 1;
+		window.sessionStorage.pageNumber = 1;
 		$scope.pageSize = pageSize;
 		$scope.pageNumber = 1;
 		getPhotosByAlbumId();
@@ -25,7 +15,7 @@ app.controller('photosController', function($scope, $routeParams, PhotosService,
 	};
 
 	function getPhotosByAlbumId() {
-		PhotosService.getPhotosByAlbumId($scope.pageSize, $scope.pageNumber, $routeParams.id).then(
+		LoadDataService.getPhotosByAlbumId($scope.pageSize, $scope.pageNumber, $routeParams.id).then(
 			function onSuccess(response) {
 				$scope.photosErrorMesage = null;
 				$scope.photos = response.photos;

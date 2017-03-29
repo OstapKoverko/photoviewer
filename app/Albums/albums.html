@@ -25,18 +25,18 @@
 					<div class="collapse navbar-collapse" id="navbar">
 						<!-- PAGE SIZING -->
 						<ul class="nav navbar-nav">
-			        <li class="dropdown">
-			          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button">
-			          	Albums per pages:
-			          	<span ng-bind="pageSize"></span>
-			          	<span class="caret"></span>
-			          </a>
-			          <ul class="dropdown-menu">
+							<li class="dropdown">
+								<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button">
+									Albums per page:
+									<span ng-bind="pageSize"></span>
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
 									<li> <a ng-href="" ng-click="setPageSize(10)"> 10 </a> </li>
 									<li> <a ng-href="" ng-click="setPageSize(20)"> 20 </a> </li>
 									<li> <a ng-href="" ng-click="setPageSize(50)"> 50 </a> </li>
 								</ul>
-			        </li>
+							</li>
 						</ul>
 						<!-- /PAGE SIZING -->
 						<ul class="nav navbar-nav navbar-right">
@@ -55,7 +55,7 @@
 					<td ng-bind="album.id"> </td>
 					<td ng-bind="album.title"> </td>
 					<td>
-						<a ng-href="#albums/{{ album.id }}"> 
+						<a ng-href="#albums/{{album.id}}"> 
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</a>
 					</td>

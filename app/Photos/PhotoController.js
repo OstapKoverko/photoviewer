@@ -1,8 +1,8 @@
-app.controller('photoController', function($scope, $routeParams, PhotosService, UpgradeDomService) {
+app.controller('photoController', function($scope, $routeParams, LoadDataService, UpgradeDomService) {
 	$scope.loading = true;
 	$scope.currentAlbumId = window.sessionStorage.currentAlbumId;
 	
-	PhotosService.getPhoto($routeParams.id).then(
+	LoadDataService.getPhoto($routeParams.id).then(
 		function onSuccess(response) {
 			$scope.photoErrorMesage = null;
 			$scope.photo = response;

@@ -1,4 +1,4 @@
-app.controller('albumsController', function($scope, PhotosService, UpgradeDomService) {
+app.controller('albumsController', function($scope, LoadDataService, UpgradeDomService) {
 	$scope.loading = true;
 	$scope.pageSize = 10;
 	$scope.pageNumber = 1;
@@ -13,7 +13,7 @@ app.controller('albumsController', function($scope, PhotosService, UpgradeDomSer
 	};
 
 	function getAlbums() {
-		PhotosService.getAlbums($scope.pageSize, $scope.pageNumber).then(
+		LoadDataService.getAlbums($scope.pageSize, $scope.pageNumber).then(
 			function onSuccess(response) {
 				$scope.albumsErrorMesage = null;
 				$scope.albums = response.albums;
@@ -30,7 +30,6 @@ app.controller('albumsController', function($scope, PhotosService, UpgradeDomSer
 	}
 
 	getAlbums();
-	
 	UpgradeDomService.upgradeDom();
 
 });
